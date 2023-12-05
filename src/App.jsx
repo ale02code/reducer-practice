@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import Counter from "./components/Counter.jsx";
+import { AppStyleClass } from "./components/StyleClass.jsx";
 
 function initialState() {
   return {
@@ -39,10 +40,12 @@ function App() {
   const decrement = () => dispatch({ type: "DECREMENT" });
   const reset = () => dispatch({ type: "RESET" });
 
+  const { mainContainer, projectTitle } = AppStyleClass();
+
   return (
-    <div className="h-screen w-screen bg-zinc-100 flex justify-center items-center flex-col gap-7">
+    <div className={mainContainer}>
       <header>
-        <h1 className="text-2xl uppercase font-bold">Counter</h1>
+        <h1 className={projectTitle}>Counter</h1>
       </header>
       <Counter
         value={state.count}

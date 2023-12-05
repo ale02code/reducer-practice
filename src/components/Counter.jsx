@@ -1,31 +1,28 @@
 import React from "react";
+import { CounterStyleClass } from "./StyleClass.jsx";
 
 function Counter({ value, add, less, restart }) {
+  const style = CounterStyleClass();
+
   return (
     <>
-      <main className="flex justify-center items-center flex-col w-96 bg-black text-white rounded-md h-60 overflow-hidden shadow-2xl">
-        <section className="mb-2 w-full text-center">
-          <p className="text-6xl" style={{ wordBreak: "break-word" }}>
+      <main className={style.counterContainer}>
+        <section className={style.valueContainer}>
+          <p
+            className={style.counterValueCurrent}
+            style={{ wordBreak: "break-word" }}
+          >
             {value}
           </p>
         </section>
-        <footer className="flex gap-1">
-          <button
-            onClick={add}
-            className="py-1 px-3 bg-blue-700 w-10 rounded font-semibold text-xl active:bg-blue-500"
-          >
+        <footer className={style.buttonsContainer}>
+          <button onClick={add} className={style.buttonAdd}>
             +
           </button>
-          <button
-            onClick={restart}
-            className="bg-slate-500 py-1 px-2 rounded font-semibold text-xl uppercase"
-          >
+          <button onClick={restart} className={style.buttonReset}>
             reset
           </button>
-          <button
-            onClick={less}
-            className="bg-red-700 py-1 px-3 w-10 rounded font-semibold text-xl active:bg-red-500"
-          >
+          <button onClick={less} className={style.buttonLess}>
             -
           </button>
         </footer>
