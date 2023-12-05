@@ -8,14 +8,27 @@ function initialState() {
 }
 
 function counterReducer(state = initialState(), action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return { count: state.count + 1 };
-    case "DECREMENT":
-      if (state.count === 0) return initialState();
-      return { count: state.count - 1 };
-    case "RESET":
-      return initialState();
+  // * this case i used switch
+  // switch (action.type) {
+  //   case "INCREMENT":
+  //     return { count: state.count + 1 };
+  //   case "DECREMENT":
+  //     if (state.count === 0) return initialState();
+  //     return { count: state.count - 1 };
+  //   case "RESET":
+  //     return initialState();
+  // }
+
+  // * this case i used if
+  if (action.type === "INCREMENT") {
+    return { count: state.count + 1 };
+  }
+  if (action.type === "DECREMENT") {
+    if (state.count === 0) return initialState();
+    return { count: state.count - 1 };
+  }
+  if (action.type === "RESET") {
+    return initialState();
   }
 }
 
